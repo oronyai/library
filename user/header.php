@@ -44,7 +44,7 @@
     .navbar ul .admin-intro{
         display: block;
         border: none;
-        margin-left: 625px;
+        margin-left: 553px;
         cursor: pointer;
         color: white;
         font-weight: bold;
@@ -165,7 +165,7 @@
         animation-iteration-count: 10;
         animation-duration: 2s;
     }
-        @keyframes myAnim1 {
+    @keyframes myAnim1 {
         0%, 100% { background:rgb(0, 200, 255); }
         33% { background: black; }
         66% { background: darkblue; }
@@ -177,7 +177,7 @@
         text-decoration: none;
         color: white;
     }
-    #notice{ 
+    #notice, #comment{ 
         display: none;
         position: absolute;
         z-index: 9999;
@@ -194,10 +194,37 @@
         color: white;
         animation: myAnim2;
         animation-duration: 2s;
+        overflow: scroll;
+    }
+    #comment{ 
+        margin-left: 0px;
+        margin-top: -10px;
+        max-height: 400px;
+        
     }
     @keyframes myAnim2 {
         from{ opacity: 0%;}
         to {opacity: 100%;}
+    }
+    .forum-button{
+        background-color: rgb(2, 47, 248);
+        height: 50px;
+        width:70px;
+        border: none;
+        color: white;
+        font-family: arial narrow;
+        font-weight: bold;
+        margin-top: -10px;
+    }
+    .forum-button a{
+        text-decoration: none;
+    }
+    .post{
+        background-color: rgba(74, 74, 74, 0.61);
+        border-radius: 10px;
+        padding: 5px;
+        margin-left: 10px;
+        margin-bottom: 2px;
     }
 
 </style>
@@ -240,6 +267,14 @@
             <li>
                 <a href = "http://localhost/library/user/borrowed.php" class="links">BORROWED</a>
             </li>
+
+            <li>
+                <div class = "forum-button-container">
+                    <button class="forum-button" name="forum" onclick="showComment()">
+                        <a href="http://localhost/library/user/user_page.php#comment">FORUM</a></button>
+                </div>
+            </li>
+            
             <li class="admin-intro">
                 <?= strtoupper($_SESSION["username"])?>
                 <ul class = "submenu">
@@ -274,6 +309,54 @@
         </div>
         </ul>  
     </nav>
+
+    <!Pop-up contents of the forum tab>
+    <div id = "comment">
+        <form method="POST" action="http://localhost/library/user/header.php">
+            <?php
+                $conn = new mysqli("localhost", "root", "", "businessdb");
+
+                $sql = "SELECT * FROM forum ORDER BY time DESC";
+                $result = mysqli_query($conn, $sql);
+
+                echo"<div style='font-weight: bold; text-align:center; text-decoration: double underline'>";
+                    echo"USERS' FORUM";
+                echo"</div>";
+
+                echo "<button style='margin-left: 10px'>
+                    <a href='forum.php' style='text-decoration:none; color:black;'>
+                    Make Post
+                </a></button>";
+
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo "<div class='post'>";
+                            echo "<div>";
+                            echo "<span style='font-weight: bold; color:grey'>"
+                                . strtoupper($row['username']) . 
+                            "</span>";
+                            
+                            echo "<span style='font-weight: bold; color:grey'>";
+                            echo ": ";
+                            "</span>";
+
+                            echo "<span style='font-weight: bold; color:red'>"
+                                . strtoupper( $row['role']) . 
+                            "</span>";
+                        echo"</div>";
+
+                        echo "<div style='font-family: courier new'>"
+                                . $row['time'] . 
+                            "</div>";
+
+                        echo "<div style='font-family: times new roman'>"
+                                . $row['comment'] . 
+                            "</div>";
+                        echo "</div>";
+                    } 
+            ?>
+
+        </form>
+    </div>
 
     <div class = "button-container">
             <button class="update-button" name="notice" onclick="showNotice()">
@@ -313,6 +396,16 @@
 </header>
 
 <script>
+    function showComment(){
+        var div = document.getElementById("comment");
+
+        if (div.style.display === "none") {
+            div.style.display = "block";
+        } else {
+            div.style.display = "none";
+        }
+    }
+
     function showNotice(){
         var div = document.getElementById("notice");
 
@@ -322,6 +415,7 @@
             div.style.display = "none";
         }
     }
+
 </script>
 
 </body>

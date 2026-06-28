@@ -107,7 +107,7 @@
 
             <input type="text" id="username" class="user-input" name="username" value=<?php echo $row["username"] ?>>
 
-            <input type="text" id="password" class="user-input" name="password" value=<?php echo $row["password"] ?>><br><br><br>
+            <input type="text" id="password" class="user-input" name="password" placeholder="password"><br><br><br>
 
             <input type="text" id="email" class="user-input" name="email" value=<?php echo $row["email"] ?>><br><br><br>
 

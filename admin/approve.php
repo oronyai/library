@@ -137,14 +137,14 @@
             ?>
                 <tbody>
                     <tr>
-                        <td style="width:10px;"><?php echo $row['id']; ?></td>
-                        <td style="width:100px;"><?php echo $row['username']; ?></td>
-                        <td style="width:150px;"><?php echo $row['email']; ?></td>
-                        <td style="width:200px;"><?php echo $row['password']; ?></td>
-                        <td style="width:70px;"><?php echo $row['contact']; ?></td>
-                        <td style="width:60px;"><?php echo $row['sem']; ?></td>
-                        <td style="width:100px;"><?php echo $row['enrol']; ?></td>
-                        <td style="text-align: center; width:100px;">
+                        <td style="max-width:10px;"><?php echo $row['id']; ?></td>
+                        <td style="max-width:100px;"><?php echo $row['username']; ?></td>
+                        <td style="max-width:150px;"><?php echo $row['email']; ?></td>
+                        <td style="max-width:200px;"><?php echo $row['password']; ?></td>
+                        <td style="max-width:70px;"><?php echo $row['contact']; ?></td>
+                        <td style="text-align: center; max-width:60px;"><?php echo $row['sem']; ?></td>
+                        <td style="max-width:100px;"><?php echo $row['enrol']; ?></td>
+                        <td style="text-align: center; max-width:100px;">
                             <form action="approve.php" method="POST">
                                 <input type = "hidden" name = "id" value = "<?php echo $row['id']; ?>"/>
                                 <input type = "submit" name = "approve" class = "approve" id = "button" value = "approve"/>

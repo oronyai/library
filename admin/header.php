@@ -107,11 +107,12 @@
         text-decoration: none;
         color: white;
     }
-    #notice{ 
+    #notice, #comment{ 
         display: none;
         position: absolute;
         z-index: 9999;
         width: 400px;
+        overflow: scroll;
         padding-right: 10px; 
         padding-top: 2px; 
         padding-bottom: 2px; 
@@ -124,10 +125,36 @@
         color: white;
         animation: myAnim2;
         animation-duration: 2s;
+        overflow: scroll;
     }
     @keyframes myAnim2 {
         from{ opacity: 0%;}
         to {opacity: 100%;}
+    }
+    #comment{ 
+        margin-left: 465px;
+        margin-top: -30px;
+        max-height: 400px;
+    }
+    .forum-button{
+        display: block;
+        height: 50px;
+        background-color: rgb(0, 14, 74);
+        float: left;
+        width:140px;
+        font-family: arial;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .forum-button:hover{
+        background-color: rgb(40, 120, 248);
+    }
+    .post{
+        background-color: rgba(74, 74, 74, 0.61);
+        border-radius: 10px;
+        padding: 5px;
+        margin-left: 10px;
+        margin-bottom: 2px;
     }
 </style>
 
@@ -150,6 +177,12 @@
             <li><a href="http://localhost/library/books/display.php"
                 style="font-size: 15px;" class="links">BOOKS LIST</a></li>
             <li><a href = "http://localhost/library/books/borrowed.php" class="links">BORROWED</a></li>
+            <li>
+                <div class = "forum-button-container">
+                    <button class="forum-button" name="forum" onclick="showComment()">
+                        <a href="#comment">FORUM</a></button>
+                </div>
+            </li>
         </ul>
         
         <div class = "admin-intro">Admin: <?= strtoupper($_SESSION['email']) ?></div>
@@ -198,6 +231,58 @@
         </div>
     </nav>
 
+    <!Pop-up contents of the forum tab>
+    <div id = "comment">
+        <form method="POST" action="http://localhost/library/admin/header.php">
+            <?php
+                $conn = new mysqli("localhost", "root", "", "businessdb");
+
+                $sql = "SELECT * FROM forum ORDER BY time DESC";
+                $result = mysqli_query($conn, $sql);
+
+                echo"<div style='font-weight: bold; text-align:center; text-decoration: double underline'>";
+                    echo"USERS' FORUM";
+                echo"</div>";
+
+                echo "<button style='margin-left: 10px'>
+                    <a href='forum.php' style='text-decoration:none; color:black;'>
+                    Make Post
+                </a></button>";
+
+                while($row = mysqli_fetch_assoc($result)){ 
+                    echo "<div class='post'>";
+                        echo "<div>";
+                            echo "<span style='font-weight: bold; color:grey'>"
+                                . strtoupper($row['username']) . 
+                            "</span>";
+                            
+                            echo "<span style='font-weight: bold; color:grey'>";
+                            echo ": ";
+                            "</span>";
+
+                            echo "<span style='font-weight: bold; color:red'>"
+                                . strtoupper( $row['role']) . 
+                            "</span>";
+                        echo"</div>";
+
+                        echo "<div style='font-family: courier new'>"
+                                . $row['time'] . 
+                            "</div>";
+
+                            echo "<div style='font-family: times new roman'>"
+                                . $row['comment'] . 
+                            "</div>";
+                        $id = $row['id'];
+                        echo "<button><a href='deleteComment.php?deleteCommentid=$id' style='text-decoration:none; color:black;'>
+                        Delete</a></button>";
+                    echo "</div>";   
+                }
+
+            ?>
+
+        </form>
+    </div>
+
     <div id = "notice">
         <form method = "POST" action = "header.php">
             <?php
@@ -211,17 +296,9 @@
                 echo"</div>";
                 echo "<ol>";
                     while($row = mysqli_fetch_assoc($result)){
-                        echo "<li>" . $row['notice'] . "<input type='submit' name='delete' value='Delete'>";"</li>";
-
                         $id = $row['id'];
-                        if(isset($_POST['delete'])){
-                            $sql = "DELETE FROM noticeboard WHERE id = '$id'";
-                            $result = mysqli_query($conn, $sql);
-                            echo "<script>
-                                window.location.href='admin_page.php';
-                                alert('Notice deleted!');
-                            </script>";
-                        }
+                        echo "<li>" . $row['notice'] . "<button><a href='deleteNotice.php?deleteNoticeid=$id' style='text-decoration:none; color:black;'>
+                        Delete</a></button>";"</li>";
                     } 
                 echo "</ol>";
             ?>
@@ -232,15 +309,25 @@
 </header>
 
 <script>
-function showNotice(){
-    var div = document.getElementById("notice");
+    function showComment(){
+        var div = document.getElementById("comment");
 
-    if (div.style.display === "none") {
-        div.style.display = "block";
-    } else {
-        div.style.display = "none";
+        if (div.style.display === "none") {
+            div.style.display = "block";
+        } else {
+            div.style.display = "none";
+        }
     }
-}
+
+    function showNotice(){
+        var div = document.getElementById("notice");
+
+        if (div.style.display === "none") {
+            div.style.display = "block";
+        } else {
+            div.style.display = "none";
+        }
+    }
 </script>
 
 </body>
@@ -251,6 +338,6 @@ function showNotice(){
     if (isset($_POST['add'])){
         echo"<script>window.location.href='notice.php'</script>";
     }
-
+    
 ?>
 
