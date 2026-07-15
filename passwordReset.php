@@ -37,7 +37,7 @@
 </html>
 
 <?php
-    $conn = mysqli_connect("localhost", "root", "", "businessdb");
+    $conn = mysqli_connect("localhost", "root", "Ruth@0002", "businessdb");
 
     if(isset($_POST['reset_password'])){
         $username = $_POST['username'];

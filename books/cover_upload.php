@@ -18,7 +18,7 @@
 </html>
 
 <?php
-    $conn = new mysqli('localhost', 'root', '', 'businessdb');
+    $conn = new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
     if(isset($_POST['upload-book'])){
         $title_name = $_FILES['title']['name'];
         $title_temp  = $_FILES['title']['tmp_name'];

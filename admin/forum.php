@@ -4,7 +4,7 @@
         header("Location: http://localhost/library/admin/login.php");
         exit();
     }
-    $conn = new mysqli("localhost", "root", "", "businessdb");
+    $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
     $email = $_SESSION['email'];
     
     error_reporting(0);

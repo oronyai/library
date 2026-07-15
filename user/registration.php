@@ -96,7 +96,7 @@
 </html>
 
 <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'businessdb');
+    $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     //Other details

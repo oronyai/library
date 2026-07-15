@@ -162,7 +162,7 @@
         <button class="counter"><u>BOOK STATS</u> <br>
             <a href = "" class = "book_stats">Total
                 <?php  
-                    $conn=new mysqli('localhost', 'root', '', 'businessdb');
+                    $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
                     $query = "SELECT * FROM book";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -174,7 +174,7 @@
 
             <a href = "http://localhost/library/books/borrowed.php" class = "book_stats">Borrowed
                 <?php  
-                    $conn=new mysqli('localhost', 'root', '', 'businessdb');
+                    $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
                     $query = "SELECT * FROM borrowing WHERE status = 'approved'";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -186,7 +186,7 @@
 
             <a href = "http://localhost/library/admin/approve_book.php" class = "book_stats">Requested
                 <?php  
-                    $conn=new mysqli('localhost', 'root', '', 'businessdb');
+                    $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
                     $query = "SELECT * FROM borrowing WHERE status = 'pending'";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -213,7 +213,7 @@
         <div class="grid-container">
 
             <?php
-                $conn = mysqli_connect('localhost', 'root', '', 'businessdb');
+                $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
                 
                 if(isset($_GET['search'])){
                     $filtervalues = $_GET['search'];
@@ -263,7 +263,7 @@
     <div class="grid-container">
         <?php
             include ("connect.php");
-            $conn= new mysqli('localhost', 'root', '', 'businessdb');
+            $conn= new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
 
             $sql = "SELECT * FROM book";
             $result=mysqli_query($conn, $sql);

@@ -232,7 +232,7 @@
 <body>
 
     <?php
-        $conn = mysqli_connect('localhost', 'root', '', 'businessdb');
+        $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
         $sql = "SELECT * FROM user";
         $result = mysqli_query($conn, $sql);
 
@@ -314,7 +314,7 @@
     <div id = "comment">
         <form method="POST" action="http://localhost/library/user/header.php">
             <?php
-                $conn = new mysqli("localhost", "root", "", "businessdb");
+                $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
 
                 $sql = "SELECT * FROM forum ORDER BY time DESC";
                 $result = mysqli_query($conn, $sql);
@@ -362,7 +362,7 @@
             <button class="update-button" name="notice" onclick="showNotice()">
                 <a href="#notice">Notice(s)
                 <?php  
-                    $conn=new mysqli('localhost', 'root', '', 'businessdb');
+                    $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
                     $query = "SELECT * FROM noticeboard";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -376,7 +376,7 @@
         <div id = "notice">
             <form method="POST" action="http://localhost/library/admin/header.php">
                 <?php
-                    $conn = new mysqli("localhost", "root", "", "businessdb");
+                    $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
 
                     $sql = "SELECT * FROM noticeboard";
                     $result = mysqli_query($conn, $sql);

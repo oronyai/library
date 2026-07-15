@@ -56,7 +56,7 @@
 </html>
 <?php
     if(isset($_POST["submit"])){
-        $conn = new mysqli("localhost", "root", "", "businessdb");
+        $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
         $email = $_SESSION['email'];
 
         $image_name = $_FILES['background']['name'];

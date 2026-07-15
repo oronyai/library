@@ -6,7 +6,7 @@
     }
     
     include("connect.php");
-    $conn = new mysqli('localhost', 'root', '', 'businessdb');
+    $conn = new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
     
     if(isset($_GET['borrowid'])){
         $id = $_GET['borrowid'];

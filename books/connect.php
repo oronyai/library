@@ -1,5 +1,5 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'businessdb');
+    $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
     if(!$conn){
         echo "Connection failed!";
     }

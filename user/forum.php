@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $conn = new mysqli("localhost", "root", "", "businessdb");
+    $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
     $username = $_SESSION['username'];
     
     error_reporting(0);

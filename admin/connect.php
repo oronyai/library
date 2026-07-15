@@ -1,6 +1,6 @@
 <?php
 
-    $conn = mysqli_connect('localhost', 'root', '', 'businessdb');
+    $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
     
     if(isset($_POST['submit'])){
         $firstName = filter_input(INPUT_POST, "firstName", FILTER_SANITIZE_SPECIAL_CHARS);

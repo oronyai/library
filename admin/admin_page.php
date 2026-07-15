@@ -5,7 +5,7 @@
         exit();
     }
 
-    $conn = new mysqli("localhost", "root", "", "businessdb");
+    $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
     $email = $_SESSION['email'];
     $sql = "SELECT * FROM admin WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
@@ -111,7 +111,7 @@
 
         <br>
         <h1 style='margin-top: -10px; text-shadow: 2px 0 2px white'><center>Welcome 
-                <?php $conn=new mysqli('localhost', 'root', '', 'businessdb');
+                <?php $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
                     $email = $_SESSION['email'];
                     $query = "SELECT * FROM admin WHERE email = '$email'";
                     $result = mysqli_query($conn, $query);

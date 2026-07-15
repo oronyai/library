@@ -165,7 +165,7 @@
     <div id = "comment">
         <form method="POST" action="http://localhost/library/admin/header.php">
             <?php
-                $conn = new mysqli("localhost", "root", "", "businessdb");
+                $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
 
                 $sql = "SELECT * FROM forum ORDER BY time DESC";
                 $result = mysqli_query($conn, $sql);

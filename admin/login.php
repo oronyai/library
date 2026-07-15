@@ -34,7 +34,7 @@
 <?php
 
     session_start();
-    $conn = new mysqli("localhost", "root", "", "businessdb");
+    $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
         $password = $_POST['password'];

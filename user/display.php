@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $conn = new mysqli("localhost", "root", "", "businessdb");
+    $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
     $username = $_SESSION['username'];
     
     $sql = "SELECT * FROM user WHERE username = '$username'";
@@ -150,7 +150,7 @@
 
     <div class="grid-container">
         <?php
-            $conn = mysqli_connect('localhost', 'root', '', 'businessdb');
+            $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
             
             if(isset($_GET['search'])){
                 $filtervalues = $_GET['search'];
@@ -193,7 +193,7 @@
     <div class="grid-container">
         <?php
             include ("connect.php");
-            $conn= new mysqli('localhost', 'root', '', 'businessdb');
+            $conn= new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
 
             $sql = "SELECT * FROM book";
             $result=mysqli_query($conn, $sql);

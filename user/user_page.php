@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $conn = new mysqli("localhost", "root", "", "businessdb");
+    $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
     $username = $_SESSION['username'];
     
     $sql = "SELECT * FROM user WHERE username = '$username'";
@@ -107,7 +107,7 @@
         <form action="user_page.php" method="POST" enctype="multipart/form-data">
 
             <h1>Welcome, 
-                <?php $conn=new mysqli('localhost', 'root', '', 'businessdb');
+                <?php $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
                     $username = $_SESSION['username'];
                     $query = "SELECT * FROM user WHERE username = '$username'";
                     $result = mysqli_query($conn, $query);
