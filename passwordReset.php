@@ -37,7 +37,7 @@
 </html>
 
 <?php
-    $conn = mysqli_connect("localhost", "root", "Ruth@0002", "businessdb");
+    require_once 'config.php';
 
     if(isset($_POST['reset_password'])){
         $username = $_POST['username'];
@@ -59,21 +59,21 @@
             
                 if($result){
                     echo "<script>
-                        window.location.href='http://localhost/library/index.php'; 
+                        window.location.href='index.php'; 
                         alert ('Success! Password has been reset')
                     </script>";
                 }
 
             } else {
                 echo "<script>
-                    window.location.href='http://localhost/library/passwordReset.php'; 
+                    window.location.href='passwordReset.php'; 
                     alert ('Error in credentials entered')
                 </script>";
             }
 
         }else {
             echo "<script>
-                window.location.href='http://localhost/library/passwordReset.php'; 
+                window.location.href='passwordReset.php'; 
                 alert ('Error! Passwords not matching')
             </script>";
         }

@@ -1,7 +1,7 @@
 <?php
 
     if(isset($_POST['switch-to-admin'])){
-        header("Location: http://localhost/library/admin/login.php");
+        header("Location: library/admin/login.php");
     }
     
 ?>

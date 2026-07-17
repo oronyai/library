@@ -1,7 +1,7 @@
 <?php
     session_start();
     if ($_SESSION["admin-login"] == false) {
-        header("Location: http://localhost/library/admin/login.php");
+        header("Location: library/admin/login.php");
         exit();
     }
     include('connect.php');

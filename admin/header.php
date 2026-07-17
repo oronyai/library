@@ -173,10 +173,10 @@
 
     <nav class = "navbar">
         <ul>
-            <li><a href="http://localhost/library/admin/admin_page.php" class="links">HOME</a></li>
-            <li><a href="http://localhost/library/books/display.php"
+            <li><a href="library/admin/admin_page.php" class="links">HOME</a></li>
+            <li><a href="library/books/display.php"
                 style="font-size: 15px;" class="links">BOOKS LIST</a></li>
-            <li><a href = "http://localhost/library/books/borrowed.php" class="links">BORROWED</a></li>
+            <li><a href = "library/books/borrowed.php" class="links">BORROWED</a></li>
             <li>
                 <div class = "forum-button-container">
                     <button class="forum-button" name="forum" onclick="showComment()">
@@ -190,7 +190,7 @@
         <div class = "update-container">
             <button class="update-button" name="approve"><a href="approve.php">Registration(s)
                 <?php  
-                    $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                    require_once 'library/config.php';
                     $query = "SELECT * FROM user WHERE status='pending'";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -200,7 +200,7 @@
             
             <button class="update-button" name="approve_book"><a href="approve_book.php">Borrowing(s)
                 <?php  
-                    $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                    require_once 'library/config.php';
                     $query = "SELECT * FROM borrowing WHERE status='pending'";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -210,7 +210,7 @@
 
             <button class="update-button" name="feedback"><a href="feedback.php">Feedback(s)
                 <?php  
-                    $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                    require_once 'library/config.php';
                     $query = "SELECT * FROM feedback WHERE status='pending'";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -221,7 +221,7 @@
             <button class="update-button" name="notice" onclick="showNotice()">
                 <a href="#notice">Notice(s)
                 <?php  
-                    $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                    require_once 'library/config.php';
                     $query = "SELECT * FROM noticeboard";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -233,9 +233,9 @@
 
     <!Pop-up contents of the forum tab>
     <div id = "comment">
-        <form method="POST" action="http://localhost/library/admin/header.php">
+        <form method="POST" action="library/admin/header.php">
             <?php
-                $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
+                require_once 'library/config.php';
 
                 $sql = "SELECT * FROM forum ORDER BY time DESC";
                 $result = mysqli_query($conn, $sql);
@@ -286,7 +286,7 @@
     <div id = "notice">
         <form method = "POST" action = "header.php">
             <?php
-                $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
+                require_once 'library/config.php';
 
                 $sql = "SELECT * FROM noticeboard";
                 $result = mysqli_query($conn, $sql);

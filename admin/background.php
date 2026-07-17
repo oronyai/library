@@ -1,7 +1,7 @@
 <?php
     session_start();
     if ($_SESSION["admin-login"] == false) {
-        header("Location: http://localhost/library/admin/login.php");
+        header("Location: library/admin/login.php");
         exit();
     }
 ?>
@@ -56,7 +56,7 @@
 </html>
 <?php
     if(isset($_POST["submit"])){
-        $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
+        require_once 'library/config.php';
         $email = $_SESSION['email'];
 
         $image_name = $_FILES['background']['name'];

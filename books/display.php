@@ -1,7 +1,7 @@
 <?php
     session_start();
     if ($_SESSION["admin-login"] == false) {
-        header("Location: http://localhost/library/admin/login.php");
+        header("Location: library/admin/login.php");
         exit();
     }
 
@@ -162,7 +162,7 @@
         <button class="counter"><u>BOOK STATS</u> <br>
             <a href = "" class = "book_stats">Total
                 <?php  
-                    $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                    require_once 'library/config.php';
                     $query = "SELECT * FROM book";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -172,9 +172,9 @@
                 ?>   |
             </a>
 
-            <a href = "http://localhost/library/books/borrowed.php" class = "book_stats">Borrowed
+            <a href = "library/books/borrowed.php" class = "book_stats">Borrowed
                 <?php  
-                    $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                    require_once 'library/config.php';
                     $query = "SELECT * FROM borrowing WHERE status = 'approved'";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -184,9 +184,9 @@
                 ?>   |
             </a>
 
-            <a href = "http://localhost/library/admin/approve_book.php" class = "book_stats">Requested
+            <a href = "library/admin/approve_book.php" class = "book_stats">Requested
                 <?php  
-                    $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                    require_once 'library/config.php';
                     $query = "SELECT * FROM borrowing WHERE status = 'pending'";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -213,8 +213,8 @@
         <div class="grid-container">
 
             <?php
-                $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
-                
+                require_once 'library/config.php';
+
                 if(isset($_GET['search'])){
                     $filtervalues = $_GET['search'];
                     $sql = "SELECT * FROM book WHERE CONCAT(id, title, cover, book_id, acquired) LIKE '%$filtervalues%'";
@@ -263,7 +263,7 @@
     <div class="grid-container">
         <?php
             include ("connect.php");
-            $conn= new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+            require_once 'library/config.php';
 
             $sql = "SELECT * FROM book";
             $result=mysqli_query($conn, $sql);

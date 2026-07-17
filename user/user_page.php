@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
+    require_once 'library/config.php';
     $username = $_SESSION['username'];
     
     $sql = "SELECT * FROM user WHERE username = '$username'";
@@ -107,7 +107,7 @@
         <form action="user_page.php" method="POST" enctype="multipart/form-data">
 
             <h1>Welcome, 
-                <?php $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                <?php require_once 'library/config.php';
                     $username = $_SESSION['username'];
                     $query = "SELECT * FROM user WHERE username = '$username'";
                     $result = mysqli_query($conn, $query);
@@ -154,7 +154,7 @@
 
         if($result){
             echo "<script>
-                window.location.href='Location: user_page.php'; alert('Comment submitted successfully!');
+                window.location.href='user_page.php'; alert('Comment submitted successfully!');
             </script>";
         }
         else {

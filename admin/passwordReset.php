@@ -33,7 +33,7 @@
 </html>
 
 <?php
-    $conn = mysqli_connect("localhost", "root", "Ruth@0002", "businessdb");
+    require_once 'library/config.php';
 
     if(isset($_POST['reset_password'])){
         $firstName = $_POST['firstName'];
@@ -70,7 +70,7 @@
 
         }else {
             echo "<script>
-                window.location.href='http://localhost/library/admin/passwordReset.php'; 
+                window.location.href='library/admin/passwordReset.php'; 
                 alert ('Error! Passwords not matching')
             </script>";
         }

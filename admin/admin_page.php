@@ -1,11 +1,11 @@
 <?php
     session_start();
     if ($_SESSION["admin-login"] == false) {
-        header("Location: http://localhost/library/admin/login.php");
+        header("Location: library/admin/login.php");
         exit();
     }
 
-    $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
+    require_once 'library/config.php';
     $email = $_SESSION['email'];
     $sql = "SELECT * FROM admin WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
@@ -111,7 +111,7 @@
 
         <br>
         <h1 style='margin-top: -10px; text-shadow: 2px 0 2px white'><center>Welcome 
-                <?php $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                <?php require_once 'library/config.php';
                     $email = $_SESSION['email'];
                     $query = "SELECT * FROM admin WHERE email = '$email'";
                     $result = mysqli_query($conn, $query);
@@ -172,7 +172,7 @@
 
     if(isset($_POST["logout"])){
         session_destroy();
-        header("Location: http://localhost/library/admin/login.php");
+        header("Location: library/admin/login.php");
     }
 ?>
 

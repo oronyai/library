@@ -34,7 +34,7 @@
 <?php
 
     session_start();
-    $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
+    require_once 'library/config.php';
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
         $password = $_POST['password'];
@@ -65,6 +65,6 @@
     }
 
     if(isset($_POST['switch-to-user'])){
-        header("Location: http://localhost/library/index.php");
+        header("Location: library/index.php");
     }
 ?>

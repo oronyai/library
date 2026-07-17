@@ -145,10 +145,10 @@
 
     <nav class = "navbar">
         <ul>
-            <li><a href="http://localhost/library/admin/admin_page.php" class="links">HOME</a></li>
-            <li><a href="http://localhost/library/books/display.php"
+            <li><a href="library/admin/admin_page.php" class="links">HOME</a></li>
+            <li><a href="library/books/display.php"
                 style="font-size: 15px;" class="links">BOOKS LIST</a></li>
-            <li><a href = "http://localhost/library/books/borrowed.php" class="links">BORROWED</a></li>
+            <li><a href = "books/borrowed.php" class="links">BORROWED</a></li>
             
             <li>
                 <div class = "forum-button-container">
@@ -163,9 +163,9 @@
 
     <!Pop-up contents of the forum tab>
     <div id = "comment">
-        <form method="POST" action="http://localhost/library/admin/header.php">
+        <form method="POST" action="library/admin/header.php">
             <?php
-                $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
+                require_once 'library/config.php';
 
                 $sql = "SELECT * FROM forum ORDER BY time DESC";
                 $result = mysqli_query($conn, $sql);
@@ -175,7 +175,7 @@
                 echo"</div>";
 
                 echo "<button style='margin-left: 10px'>
-                    <a href='http://localhost/library/admin/forum.php' style='text-decoration:none; color:black;'>
+                    <a href='library/admin/forum.php' style='text-decoration:none; color:black;'>
                     Make Post
                 </a></button>";
 

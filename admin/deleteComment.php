@@ -1,5 +1,5 @@
 <?php
-    $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
+    require_once 'library/config.php';
     if(isset($_GET['deleteCommentid'])){
         $id = $_GET['deleteCommentid'];
         $sql = "DELETE FROM forum WHERE id = $id";

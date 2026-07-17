@@ -88,7 +88,7 @@
 
             <input type = "submit" class="buttons" name = "submit" value = "Register">
 
-            <p>Already have an account? <a href= "http://localhost/library/index.php" class="login-link"> Login</a></p>
+            <p>Already have an account? <a href= "library/index.php" class="login-link"> Login</a></p>
         </form>
     </div>
     
@@ -96,7 +96,7 @@
 </html>
 
 <?php
-    $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
+    require_once 'library/config.php';
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     //Other details
@@ -132,7 +132,7 @@
             $result = mysqli_query($conn, $sql);
 
             echo "<script>
-                window.location.href = 'http://localhost/library/index.php'; alert('Done! Admin will approve shortly.')
+                window.location.href = 'library/index.php'; alert('Done! Admin will approve shortly.')
             </script>";
         }
     }

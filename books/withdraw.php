@@ -1,6 +1,6 @@
 <?php
     include("connect.php");
-    $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
+    require_once 'library/config.php';
     if(isset($_GET['withdrawid'])){
         $id = $_GET['withdrawid'];
         $sql = "DELETE FROM borrowing WHERE id = $id";

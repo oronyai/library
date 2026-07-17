@@ -1,12 +1,12 @@
 <?php
     session_start();
     if ($_SESSION["admin-login"] == false) {
-        header("Location: http://localhost/library/admin/login.php");
+        header("Location: library/admin/login.php");
         exit();
     }
 
     include ("connect.php");
-    $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
+    require_once 'library/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -131,7 +131,7 @@
     <div class="tableContainer">
         <h2 style="text-align: center;">Registered User(s): 
             <?php  
-                $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                require_once 'library/config.php';
                 $query = "SELECT * FROM user WHERE status='approved'";
                 $result = mysqli_query($conn, $query);
                 $count = mysqli_num_rows($result);
@@ -154,7 +154,7 @@
                 
                 <tbody>
                     <?php
-                        $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
+                        require_once 'library/config.php';
                         if(isset($_GET['search'])){
                             $filtervalues = $_GET['search'];
                             $sql = "SELECT * FROM user WHERE CONCAT(id, username, email, contact, sem, enrol) LIKE '%$filtervalues%'";

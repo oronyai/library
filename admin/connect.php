@@ -1,7 +1,7 @@
 <?php
 
-    $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
-    
+    require_once 'library/config.php';
+
     if(isset($_POST['submit'])){
         $firstName = filter_input(INPUT_POST, "firstName", FILTER_SANITIZE_SPECIAL_CHARS);
         $lastName = filter_input(INPUT_POST, "lastName", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -28,11 +28,11 @@
     }
 
     if(isset($_POST['display'])){
-        header("Location: http://localhost/library/books/display.php");
+        header("Location: library/books/display.php");
     }
 
     if (isset($_POST['approve'])){
-        header("Location: http://localhost/library/admin/approve.php");
+        header("Location: library/admin/approve.php");
     }
 
 ?>

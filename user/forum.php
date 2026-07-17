@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
+    require_once 'library/config.php';
     $username = $_SESSION['username'];
     
     error_reporting(0);

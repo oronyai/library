@@ -1,12 +1,12 @@
 <?php
     session_start();
     if ($_SESSION["admin-login"] == false) {
-        header("Location: http://localhost/library/admin/login.php");
+        header("Location: library/admin/login.php");
         exit();
     }
 
     include ("connect.php");
-    $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
+    require_once 'library/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +88,7 @@
             
             <?php echo "<div class='book-container'>"; ?>
                 <?php echo "<div class='bookArray'>"; ?>
-                    <?php echo "<img src='http://localhost/library/books/covers/" . $row['cover'] . "'style='width: 150px; height:auto'>"; ?>
+                    <?php echo "<img src='library/books/covers/" . $row['cover'] . "'style='width: 150px; height:auto'>"; ?>
                 <?php echo "</div>"; ?>
             <?php echo "</div>"; ?>
 
@@ -126,7 +126,7 @@
 
         if($result){
             echo "<script>
-                window.location.href = 'http://localhost/library/admin/approve_book.php'; alert('Borrowing approved!')
+                window.location.href = 'library/admin/approve_book.php'; alert('Borrowing approved!')
             </script>";
         }
     }
@@ -138,7 +138,7 @@
 
         if($result){
             echo "<script>
-            window.location.href = 'http://localhost/library/admin/approve_book.php'; alert('Request declined!')
+            window.location.href = 'library/admin/approve_book.php'; alert('Request declined!')
         </script>";
         }
     }

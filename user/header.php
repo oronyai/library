@@ -1,12 +1,12 @@
 <?php session_start();
     if ($_SESSION["user-login"] == false) {
-        header("Location: http://localhost/library/index.php");
+        header("Location: library/index.php");
         exit();
     }
 
     if(isset($_POST['logout'])){
         session_destroy();
-        header("location: http://localhost/library/index.php");
+        header("location: library/index.php");
     }
 ?>
 
@@ -232,7 +232,7 @@
 <body>
 
     <?php
-        $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
+        require_once 'library/config.php';
         $sql = "SELECT * FROM user";
         $result = mysqli_query($conn, $sql);
 
@@ -259,19 +259,19 @@
     <nav class = "navbar">
         <ul>
             <li>
-                <a href="http://localhost/library/user/user_page.php" class="links">HOME</a>
+                <a href="library/user/user_page.php" class="links">HOME</a>
             </li>
             <li>
-                <a href="http://localhost/library/user/display.php" class="links">BOOKS LIST</a>
+                <a href="library/user/display.php" class="links">BOOKS LIST</a>
             </li>
             <li>
-                <a href = "http://localhost/library/user/borrowed.php" class="links">BORROWED</a>
+                <a href = "library/user/borrowed.php" class="links">BORROWED</a>
             </li>
 
             <li>
                 <div class = "forum-button-container">
                     <button class="forum-button" name="forum" onclick="showComment()">
-                        <a href="http://localhost/library/user/user_page.php#comment">FORUM</a></button>
+                        <a href="library/user/user_page.php#comment">FORUM</a></button>
                 </div>
             </li>
             
@@ -312,9 +312,9 @@
 
     <!Pop-up contents of the forum tab>
     <div id = "comment">
-        <form method="POST" action="http://localhost/library/user/header.php">
+        <form method="POST" action="library/user/header.php">
             <?php
-                $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
+                require_once 'library/config.php';
 
                 $sql = "SELECT * FROM forum ORDER BY time DESC";
                 $result = mysqli_query($conn, $sql);
@@ -362,7 +362,7 @@
             <button class="update-button" name="notice" onclick="showNotice()">
                 <a href="#notice">Notice(s)
                 <?php  
-                    $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                    require_once 'library/config.php';
                     $query = "SELECT * FROM noticeboard";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -374,9 +374,9 @@
         </div>
         
         <div id = "notice">
-            <form method="POST" action="http://localhost/library/admin/header.php">
+            <form method="POST" action="library/admin/header.php">
                 <?php
-                    $conn = new mysqli("localhost", "root", "Ruth@0002", "businessdb");
+                    require_once 'library/config.php';
 
                     $sql = "SELECT * FROM noticeboard";
                     $result = mysqli_query($conn, $sql);

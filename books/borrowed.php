@@ -1,7 +1,7 @@
 <?php
     session_start();
     if ($_SESSION["admin-login"] == false) {
-        header("Location: http://localhost/library/admin/login.php");
+        header("Location: library/admin/login.php");
         exit();
     }
 
@@ -131,9 +131,9 @@
 <div class="formcontainer">
 
     <button class="buttons"><u>BOOK STATS</u> <br>
-        <a href = "http://localhost/library/books/display.php" class = "book_stats">Total
+        <a href = "library/books/display.php" class = "book_stats">Total
             <?php  
-                $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                require_once 'library/config.php';
                 $query = "SELECT * FROM book";
                 $result = mysqli_query($conn, $query);
                 $count = mysqli_num_rows($result);
@@ -145,7 +145,7 @@
 
         <a href = "" class = "book_stats">Borrowed
             <?php  
-                $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                require_once 'library/config.php';
                 $query = "SELECT * FROM borrowing WHERE status = 'approved'";
                 $result = mysqli_query($conn, $query);
                 $count = mysqli_num_rows($result);
@@ -155,9 +155,9 @@
             ?>   |
         </a>
 
-        <a href = "http://localhost/library/admin/approve_book.php" class = "book_stats">Requested
+        <a href = "library/admin/approve_book.php" class = "book_stats">Requested
             <?php  
-                $conn=new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+                require_once 'library/config.php';
                 $query = "SELECT * FROM borrowing WHERE status = 'pending'";
                 $result = mysqli_query($conn, $query);
                 $count = mysqli_num_rows($result);
@@ -183,7 +183,7 @@
 
     <div class="grid-container">
         <?php
-            $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
+            require_once 'library/config.php';
             
             if(isset($_GET['search'])){
                 $filtervalues = $_GET['search'];
@@ -197,7 +197,7 @@
                     foreach($result as $items){
                         echo "<div class='book-container'>";
                             echo "<div class='bookArray'>";
-                                echo "<img src='http://localhost/library/books/covers/" . $row['cover'] . "'style='width: 150px; height:200px'>";
+                                echo "<img src='library/books/covers/" . $row['cover'] . "'style='width: 150px; height:200px'>";
                             echo "</div>";
 
                             echo "<div class='action'>";
@@ -222,8 +222,7 @@
 
     <div class="grid-container">
         <?php
-            include ("connect.php");
-            $conn= new mysqli('localhost', 'root', 'Ruth@0002', 'businessdb');
+            require_once 'library/config.php';
 
                 $sql = "SELECT * FROM borrowing WHERE status = 'approved'";
                 $result=mysqli_query($conn, $sql);
@@ -236,7 +235,7 @@
 
                 echo "<div class='book-container'>";
                     echo "<div class='bookArray'>";
-                        echo "<img src='http://localhost/library/books/covers/" . $cover . "'style='width: 150px; height:auto'>";
+                        echo "<img src='library/books/covers/" . $cover . "'style='width: 150px; height:auto'>";
                     echo "</div>";
 
                     echo "<div class='action'>";

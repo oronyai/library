@@ -32,7 +32,7 @@
 
 <?php
     session_start();
-    $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
+    require_once 'config.php';
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $id = $_POST['id'];

@@ -1,6 +1,6 @@
 <?php
     include("connect.php");
-    $conn = mysqli_connect('localhost', 'root', 'Ruth@0002', 'businessdb');
+    require_once 'library/config.php';
     if(isset($_GET['deleteid'])){
         $id = $_GET['deleteid'];
         $sql = "DELETE FROM book WHERE id = $id";
