@@ -1,6 +1,6 @@
 <?php
     include("connect.php");
-    require_once 'library/config.php';
+    require_once '../config.php';
     if(isset($_GET['deleteid'])){
         $id = $_GET['deleteid'];
         $sql = "DELETE FROM book WHERE id = $id";

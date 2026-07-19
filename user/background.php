@@ -1,7 +1,7 @@
 <?php
     session_start();
     if ($_SESSION["user-login"] == false) {
-        header("Location: library/admin/login.php");
+        header("Location: ../index.php");
         exit();
     }
 ?>

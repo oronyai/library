@@ -132,7 +132,7 @@
             $result = mysqli_query($conn, $sql);
 
             echo "<script>
-                window.location.href = 'library/index.php'; alert('Done! Admin will approve shortly.')
+                window.location.href = '../index.php'; alert('Done! Admin will approve shortly.')
             </script>";
         }
     }

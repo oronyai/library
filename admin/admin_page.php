@@ -1,7 +1,7 @@
 <?php
     session_start();
     if ($_SESSION["admin-login"] == false) {
-        header("Location: library/admin/login.php");
+        header("Location: login.php");
         exit();
     }
 
@@ -172,7 +172,7 @@
 
     if(isset($_POST["logout"])){
         session_destroy();
-        header("Location: library/admin/login.php");
+        header("Location: login.php");
     }
 ?>
 

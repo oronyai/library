@@ -28,11 +28,11 @@
     }
 
     if(isset($_POST['display'])){
-        header("Location: library/books/display.php");
+        header("Location: ../books/display.php");
     }
 
     if (isset($_POST['approve'])){
-        header("Location: library/admin/approve.php");
+        header("Location: approve.php");
     }
 
 ?>

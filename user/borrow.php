@@ -1,7 +1,7 @@
 <?php
     session_start();
     if ($_SESSION["user-login"] == false) {
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
     }
     

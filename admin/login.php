@@ -65,6 +65,6 @@
     }
 
     if(isset($_POST['switch-to-user'])){
-        header("Location: library/index.php");
+        header("Location: ../index.php");
     }
 ?>
