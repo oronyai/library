@@ -35,7 +35,7 @@
 
     if(isset($_POST['add'])){
         $notice = filter_input(INPUT_POST, "notice", FILTER_SANITIZE_SPECIAL_CHARS);
-        require_once 'library/config.php';
+        require_once ('../config.php');
 
         $sql = "INSERT INTO noticeboard (notice)
                 VALUE ('$notice')";

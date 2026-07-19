@@ -1,6 +1,6 @@
 <?php
     include("connect.php");
-    require_once 'library/config.php';
+    require_once ('../config.php');
     if(isset($_GET['withdrawid'])){
         $id = $_GET['withdrawid'];
         $sql = "DELETE FROM borrowing WHERE id = $id";

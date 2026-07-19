@@ -162,7 +162,7 @@
         <button class="counter"><u>BOOK STATS</u> <br>
             <a href = "" class = "book_stats">Total
                 <?php  
-                    require_once 'library/config.php';
+                    require_once ('../config.php');
                     $query = "SELECT * FROM book";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -172,9 +172,9 @@
                 ?>   |
             </a>
 
-            <a href = "library/books/borrowed.php" class = "book_stats">Borrowed
+            <a href = "borrowed.php" class = "book_stats">Borrowed
                 <?php  
-                    require_once 'library/config.php';
+                    require_once ('../config.php');
                     $query = "SELECT * FROM borrowing WHERE status = 'approved'";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -184,9 +184,9 @@
                 ?>   |
             </a>
 
-            <a href = "library/admin/approve_book.php" class = "book_stats">Requested
+            <a href = "../admin/approve_book.php" class = "book_stats">Requested
                 <?php  
-                    require_once 'library/config.php';
+                    require_once ('../config.php');
                     $query = "SELECT * FROM borrowing WHERE status = 'pending'";
                     $result = mysqli_query($conn, $query);
                     $count = mysqli_num_rows($result);
@@ -213,7 +213,7 @@
         <div class="grid-container">
 
             <?php
-                require_once 'library/config.php';
+                require_once ('../config.php');
 
                 if(isset($_GET['search'])){
                     $filtervalues = $_GET['search'];
@@ -263,7 +263,7 @@
     <div class="grid-container">
         <?php
             include ("connect.php");
-            require_once 'library/config.php';
+            require_once ('../config.php');
 
             $sql = "SELECT * FROM book";
             $result=mysqli_query($conn, $sql);

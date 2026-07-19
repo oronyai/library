@@ -131,9 +131,9 @@
 <div class="formcontainer">
 
     <button class="buttons"><u>BOOK STATS</u> <br>
-        <a href = "library/books/display.php" class = "book_stats">Total
+        <a href = "display.php" class = "book_stats">Total
             <?php  
-                require_once 'library/config.php';
+                require_once ('../config.php');
                 $query = "SELECT * FROM book";
                 $result = mysqli_query($conn, $query);
                 $count = mysqli_num_rows($result);
@@ -145,7 +145,7 @@
 
         <a href = "" class = "book_stats">Borrowed
             <?php  
-                require_once 'library/config.php';
+                require_once ('../config.php');
                 $query = "SELECT * FROM borrowing WHERE status = 'approved'";
                 $result = mysqli_query($conn, $query);
                 $count = mysqli_num_rows($result);
@@ -155,9 +155,9 @@
             ?>   |
         </a>
 
-        <a href = "library/admin/approve_book.php" class = "book_stats">Requested
+        <a href = "../admin/approve_book.php" class = "book_stats">Requested
             <?php  
-                require_once 'library/config.php';
+                require_once ('../config.php');
                 $query = "SELECT * FROM borrowing WHERE status = 'pending'";
                 $result = mysqli_query($conn, $query);
                 $count = mysqli_num_rows($result);
@@ -183,7 +183,7 @@
 
     <div class="grid-container">
         <?php
-            require_once 'library/config.php';
+            require_once ('../config.php');
             
             if(isset($_GET['search'])){
                 $filtervalues = $_GET['search'];
@@ -197,7 +197,7 @@
                     foreach($result as $items){
                         echo "<div class='book-container'>";
                             echo "<div class='bookArray'>";
-                                echo "<img src='library/books/covers/" . $row['cover'] . "'style='width: 150px; height:200px'>";
+                                echo "<img src='covers/" . $row['cover'] . "'style='width: 150px; height:200px'>";
                             echo "</div>";
 
                             echo "<div class='action'>";
@@ -222,7 +222,7 @@
 
     <div class="grid-container">
         <?php
-            require_once 'library/config.php';
+            require_once ('../config.php');
 
                 $sql = "SELECT * FROM borrowing WHERE status = 'approved'";
                 $result=mysqli_query($conn, $sql);
@@ -235,7 +235,7 @@
 
                 echo "<div class='book-container'>";
                     echo "<div class='bookArray'>";
-                        echo "<img src='library/books/covers/" . $cover . "'style='width: 150px; height:auto'>";
+                        echo "<img src='covers/" . $cover . "'style='width: 150px; height:auto'>";
                     echo "</div>";
 
                     echo "<div class='action'>";

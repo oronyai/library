@@ -5,7 +5,7 @@
         exit();
     }
 
-    require_once 'library/config.php';
+    require_once ('../config.php');
 ?>
 
 <!DOCTYPE html>

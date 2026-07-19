@@ -56,7 +56,7 @@
 </html>
 <?php
     if(isset($_POST["submit"])){
-        require_once 'library/config.php';
+        require_once ('../config.php');
         $username = $_SESSION['username'];
 
         $image_name = $_FILES['background']['name'];

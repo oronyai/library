@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once 'library/config.php';
+    require_once ('../config.php');
     $username = $_SESSION['username'];
     
     $sql = "SELECT * FROM user WHERE username = '$username'";
@@ -150,7 +150,7 @@
 
     <div class="grid-container">
         <?php
-            require_once 'library/config.php';
+            require_once ('../config.php');
             
             if(isset($_GET['search'])){
                 $filtervalues = $_GET['search'];
@@ -168,7 +168,7 @@
                     foreach($result as $items){
                         echo "<div class='book-container'>";
                             echo "<div class='bookArray'>";
-                                echo "<img src='library/books/covers/" . $cover . "'style='width: 150px; height:200px'>";
+                                echo "<img src='../books/covers/" . $cover . "'style='width: 150px; height:200px'>";
                             echo "</div>";
 
                             echo "<div class='action'>";
@@ -193,7 +193,7 @@
     <div class="grid-container">
         <?php
             include ("connect.php");
-            require_once 'library/config.php';
+            require_once ('../config.php');
 
             $sql = "SELECT * FROM book";
             $result=mysqli_query($conn, $sql);
@@ -205,7 +205,7 @@
 
             echo "<div class='book-container'>";
                 echo "<div class='bookArray'>";
-                    echo "<img src='library/books/covers/" . $cover . "'style='width: 150px; height:200px'>";
+                    echo "<img src='../books/covers/" . $cover . "'style='width: 150px; height:200px'>";
                 echo "</div>";
 
                 echo "<div class='action'>";

@@ -145,10 +145,10 @@
 
     <nav class = "navbar">
         <ul>
-            <li><a href="library/admin/admin_page.php" class="links">HOME</a></li>
-            <li><a href="library/books/display.php"
+            <li><a href="../admin/admin_page.php" class="links">HOME</a></li>
+            <li><a href="display.php"
                 style="font-size: 15px;" class="links">BOOKS LIST</a></li>
-            <li><a href = "books/borrowed.php" class="links">BORROWED</a></li>
+            <li><a href = "borrowed.php" class="links">BORROWED</a></li>
             
             <li>
                 <div class = "forum-button-container">
@@ -163,9 +163,9 @@
 
     <!Pop-up contents of the forum tab>
     <div id = "comment">
-        <form method="POST" action="library/admin/header.php">
+        <form method="POST" action="../admin/header.php">
             <?php
-                require_once 'library/config.php';
+                require_once ('../config.php');
 
                 $sql = "SELECT * FROM forum ORDER BY time DESC";
                 $result = mysqli_query($conn, $sql);

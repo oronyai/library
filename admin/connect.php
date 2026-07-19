@@ -1,6 +1,6 @@
 <?php
 
-    require_once 'library/config.php';
+    require_once ('../config.php');
 
     if(isset($_POST['submit'])){
         $firstName = filter_input(INPUT_POST, "firstName", FILTER_SANITIZE_SPECIAL_CHARS);

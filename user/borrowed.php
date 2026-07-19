@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once 'library/config.php';
+    require_once ('../config.php');
     $username = $_SESSION['username'];
     
     $sql = "SELECT * FROM user WHERE username = '$username'";
@@ -154,7 +154,7 @@
 
     <div class="grid-container">
         <?php
-            require_once 'library/config.php';
+            require_once ('../config.php');
             
             if(isset($_GET['search'])){
                 $filtervalues = $_GET['search'];
@@ -172,7 +172,7 @@
                     foreach($result as $items){
                         echo "<div class='book-container'>";
                             echo "<div class='bookArray'>";
-                                echo "<img src='library/books/covers/" . $cover . "'style='width: 150px; height:200px'>";
+                                echo "<img src='../books/covers/" . $cover . "'style='width: 150px; height:200px'>";
                             echo "</div>";
 
                             echo "<div class='action'>";
@@ -199,7 +199,7 @@
     <div class="grid-container">
         <?php
             include ("connect.php");
-            require_once 'library/config.php';
+            require_once ('../config.php');
 
             if(($_SESSION["user-login"]) == true) {
                 $username = $_SESSION['username'];
@@ -220,19 +220,19 @@
                 if($check_approval == 1){
                 echo "<div class='book-container'>";
                     echo "<div class='bookArray'>";
-                        echo "<img src='library/books/covers/" . $cover . "'style='width: 150px; height:200px'>";
+                        echo "<img src='../books/covers/" . $cover . "'style='width: 150px; height:200px'>";
                     echo "</div>";
 
                     echo "<div class='action'>";
                         echo"Expiry: ";
                         echo "<p style='font-family: arial; color: grey'>" . $due_date . "</p>";
-                        echo "<button class='read'><a class='action-link' href='library/books/bookFiles/".$row['book_title']."' target='_blank'>Read</a></button>";
+                        echo "<button class='read'><a class='action-link' href='../books/bookFiles/".$row['book_title']."' target='_blank'>Read</a></button>";
                     echo "</div>";
                 echo "</div>";
                 } else {
                     echo "<div class='book-container'>";
                         echo "<div class='bookArray'>";
-                            echo "<img src='library/books/covers/" . $cover . "'style='width: 150px; height:200px'><br>";
+                            echo "<img src='../books/covers/" . $cover . "'style='width: 150px; height:200px'><br>";
                         echo"</div>";
                             echo"<span style='color: red; font family: arial narrow; font-weight: bold; text-align: center'>";
                             echo "PENDING APPROVAL<br>";

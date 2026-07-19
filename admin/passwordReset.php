@@ -33,7 +33,7 @@
 </html>
 
 <?php
-    require_once 'library/config.php';
+    require_once ('../config.php');
 
     if(isset($_POST['reset_password'])){
         $firstName = $_POST['firstName'];
@@ -70,7 +70,7 @@
 
         }else {
             echo "<script>
-                window.location.href='library/admin/passwordReset.php'; 
+                window.location.href='passwordReset.php'; 
                 alert ('Error! Passwords not matching')
             </script>";
         }

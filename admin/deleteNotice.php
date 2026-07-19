@@ -1,5 +1,5 @@
 <?php
-    require_once 'library/config.php';
+    require_once ('../config.php');
     if(isset($_GET['deleteNoticeid'])){
         $id = $_GET['deleteNoticeid'];
         $sql = "DELETE FROM noticeboard WHERE id = $id";

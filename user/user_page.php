@@ -1,6 +1,9 @@
-<?php
+<?php   ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+
     session_start();
-    require_once 'library/config.php';
+    require_once ('../config.php');
     $username = $_SESSION['username'];
     
     $sql = "SELECT * FROM user WHERE username = '$username'";
@@ -107,7 +110,7 @@
         <form action="user_page.php" method="POST" enctype="multipart/form-data">
 
             <h1>Welcome, 
-                <?php require_once 'library/config.php';
+                <?php require_once ('../config.php');
                     $username = $_SESSION['username'];
                     $query = "SELECT * FROM user WHERE username = '$username'";
                     $result = mysqli_query($conn, $query);

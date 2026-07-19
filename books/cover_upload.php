@@ -18,7 +18,7 @@
 </html>
 
 <?php
-    require_once 'library/config.php';
+    require_once ('../config.php');
     if(isset($_POST['upload-book'])){
         $title_name = $_FILES['title']['name'];
         $title_temp  = $_FILES['title']['tmp_name'];

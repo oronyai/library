@@ -95,7 +95,7 @@
         <h3  style = "text-align: center;">User Profile Update</h3>
         <hr>
     <?php
-        require_once 'library/config.php';
+        require_once ('../config.php');
         $username = $_SESSION["username"];
         $sql = "SELECT * FROM user WHERE username = '$username'";
         $result = mysqli_query($conn, $sql);
@@ -130,7 +130,7 @@
 
 <?php
     if(isset($_POST["submit"])){
-        require_once 'library/config.php';
+        require_once ('../config.php');
 
         $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);

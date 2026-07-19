@@ -1,5 +1,5 @@
 <?php
-    require_once 'library/config.php';
+    require_once ('../config.php');
     if(isset($_GET['deleteCommentid'])){
         $id = $_GET['deleteCommentid'];
         $sql = "DELETE FROM forum WHERE id = $id";

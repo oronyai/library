@@ -6,7 +6,7 @@
     }
 
     include ("connect.php");
-    require_once 'library/config.php';
+    require_once ('../config.php');
 ?>
 
 <!DOCTYPE html>
@@ -131,7 +131,7 @@
     <div class="tableContainer">
         <h2 style="text-align: center;">Registered User(s): 
             <?php  
-                require_once 'library/config.php';
+                require_once ('../config.php');
                 $query = "SELECT * FROM user WHERE status='approved'";
                 $result = mysqli_query($conn, $query);
                 $count = mysqli_num_rows($result);
@@ -154,7 +154,7 @@
                 
                 <tbody>
                     <?php
-                        require_once 'library/config.php';
+                        require_once ('../config.php');
                         if(isset($_GET['search'])){
                             $filtervalues = $_GET['search'];
                             $sql = "SELECT * FROM user WHERE CONCAT(id, username, email, contact, sem, enrol) LIKE '%$filtervalues%'";

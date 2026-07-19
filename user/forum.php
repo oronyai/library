@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once 'library/config.php';
+    require_once ('../config.php');
     $username = $_SESSION['username'];
     
     error_reporting(0);

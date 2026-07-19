@@ -5,7 +5,7 @@
         exit();
     }
 
-    require_once 'library/config.php';
+    require_once ('../config.php');
     $email = $_SESSION['email'];
     $sql = "SELECT * FROM admin WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
@@ -111,7 +111,7 @@
 
         <br>
         <h1 style='margin-top: -10px; text-shadow: 2px 0 2px white'><center>Welcome 
-                <?php require_once 'library/config.php';
+                <?php require_once ('../config.php');
                     $email = $_SESSION['email'];
                     $query = "SELECT * FROM admin WHERE email = '$email'";
                     $result = mysqli_query($conn, $query);

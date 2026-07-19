@@ -4,7 +4,7 @@
         header("Location: library/admin/login.php");
         exit();
     }
-    require_once 'library/config.php';
+    require_once ('../config.php');
     $email = $_SESSION['email'];
     
     error_reporting(0);

@@ -34,7 +34,7 @@
 <?php
 
     session_start();
-    require_once 'library/config.php';
+    require_once ('../config.php');
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
         $password = $_POST['password'];
