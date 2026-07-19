@@ -88,7 +88,7 @@
 
             <input type = "submit" class="buttons" name = "submit" value = "Register">
 
-            <p>Already have an account? <a href= "library/index.php" class="login-link"> Login</a></p>
+            <p>Already have an account? <a href= "../index.php" class="login-link"> Login</a></p>
         </form>
     </div>
     
