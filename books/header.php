@@ -175,7 +175,7 @@
                 echo"</div>";
 
                 echo "<button style='margin-left: 10px'>
-                    <a href='library/admin/forum.php' style='text-decoration:none; color:black;'>
+                    <a href='../admin/forum.php' style='text-decoration:none; color:black;'>
                     Make Post
                 </a></button>";
 
