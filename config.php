@@ -1,17 +1,17 @@
 <?php
 
-$db_host = getenv('bs8aufzm3auy0nulzfmv-mysql.services.clever-cloud.com');
-$db_port = getenv(3306);
-$db_name = getenv('bs8aufzm3auy0nulzfmv');
-$db_user = getenv('uhym2ioae2mo5obq');
-$db_pass = getenv('uhym2ioae2mo5obq');
+$host = getenv('DB_HOST');
+$port = getenv('DB_PORT');
+$db   = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
 
 $conn = new mysqli(
-    $db_host,
-    $db_user,
-    $db_pass,
-    $db_name,
-    (int)$db_port
+    $host,
+    $user,
+    $pass,
+    $db,
+    (int)$port
 );
 
 if ($conn->connect_error) {
