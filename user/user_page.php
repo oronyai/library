@@ -38,6 +38,7 @@
             background-image: url('background/<?php echo $bg_img; ?>');
             background-size: cover;
             background-position: center;
+            background-color: rgba(2, 252, 243, 0.5);
         }
         .logout{
             background-color: rgb(215, 90, 45);
