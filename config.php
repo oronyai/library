@@ -1,10 +1,10 @@
 <?php
 
-$host = getenv('DB_HOST') ? : 'localhost';
-$port = getenv('DB_PORT') ? : 3306;
-$db   = getenv('DB_NAME') ? : 'businessdb';
-$user = getenv('DB_USER') ? : 'root';
-$pass = getenv('DB_PASS') ? : 'Ruth@0002';
+$host = 'sql312.infinityfree.com';
+$port = 3306;
+$db   = 'if0_42473575_businessdb';
+$user = 'if0_42473575';
+$pass = 'Ruth@0002';
 
 $conn = new mysqli(
     $host,

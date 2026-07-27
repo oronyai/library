@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Login</title>
-    <link rel="stylesheet" href="user/style.css">
+    <link rel="stylesheet" href="user_style.css">
 </head>
 <body>
     <div class = "container" style = "background-color: rgb(2, 0, 97);">
@@ -23,7 +23,7 @@
             <a href= "passwordReset.php" class="login-link">Forgot password?</a><br><br>
 
             <hr>
-            <p>Don't have an account? <a href= "user/registration.php"  class="login-link"> Register</a></p>
+            <p>Don't have an account? <a href= "user_registration.php"  class="login-link"> Register</a></p>
             <hr>
         </form>
     </div>
@@ -65,7 +65,7 @@
                 $_SESSION["password"] = $password_hash;
                 $_SESSION['profile'] = $profile;
                 $_SESSION["user-login"] = true;
-                header("Location: user/user_page.php");
+                header("Location: user_page.php");
             }
             else if($status == 'pending'){
                 echo "<script>

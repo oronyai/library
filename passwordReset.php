@@ -28,7 +28,7 @@
 
             <input type="submit" name="reset_password" class="buttons" value="RESET">
 
-            <p>Don't have an account? <a href= "user/registration.php"  class="login-link"> Register</a></p>
+            <p>Don't have an account? <a href= "user_registration.php"  class="login-link"> Register</a></p>
         </form>
 
     </div>
